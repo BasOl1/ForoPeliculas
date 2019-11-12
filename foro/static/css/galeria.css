@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+#galeria{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px auto 0 auto; /* Centrar Galeria ajustando los margenes laterales */
+    width: 56%; /* Ajusta el ancho de la galería */
+    border: 15px ridge #9f6a12;
+}
+#galeria h2{
+    width: 100%;
+    text-align: center;
+    font-size: 48px;
+    font-weight: normal;
+}
+.pelicula{
+    /* Margen entre cada pelicula */
+    margin-right: 10px;
+    margin-bottom: 10px;
+    
+}
+.pelicula h5{
+    text-align: center;
+    background-color: #000000; 
+    color: white;
+}
+.pelicula img{
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 1800px){
+    #galeria{
+        width: 66%;
+    }
+}
+@media screen and (max-width: 1530px){
+    #galeria{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 1320px){
+    #galeria{
+        width: 94%;
+    }
+}
+@media screen and (max-width: 1000px){
+    #galeria{
+        border: 10px ridge #9f6a12;
+    }
+}

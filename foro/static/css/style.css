@@ -1,0 +1,183 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+#container-top{
+    width: 100%;
+    background-color: #373a6d;
+    display: flex; /* Ajustar el contenedor superior a todo el contenido interior*/
+}
+.fila-top{
+    width: 80%;
+    margin: auto;
+}
+header{
+    float: left;
+    width: 25%;
+    background-color: #373a6d;
+    height: 100px;
+}
+
+nav{
+    float: right;
+    width: 75%;
+    background-color: #373a6d;
+    height: 100px;
+    display: block;
+}
+
+.sitio-logo{
+    height: 50px;
+    max-width: 48%;
+    padding-top: 25px;
+}
+/* Diseño de Logo 'Ruiseñor' */
+.sitio-logo a{
+    color: white;
+    font-size: 2.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    line-height: 1.2;
+    font-family: 'Quicksand', sans-serif;
+    margin: 0 40px;
+}
+
+nav ul{
+    padding: 40px;
+}
+
+nav ul li{
+    display: inline-block; /* Coloca los items del Nav en linea y en un bloque */
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    min-width: 48px;/* Medida minima para dedos ajustandose al estandar  */
+    min-height: 48px;
+    padding: 40px;/*Separar botones en 40px  */
+}
+
+
+
+/*Siguientes configuraciones para ajustar el footer siempre al final del contenido de la página */
+html,body{
+    height: 100%;
+}
+/* Contenido Principal */
+main{
+    background-color: #c3e3ff;/* COLOR DE FONDO ETIQUETA MAIN */
+    min-height: 100%;
+    overflow: auto; /* Controla qué pasa cuando el contenido es muy grande para caber en un área (en este caso añade la barra de desplazamiento)*/
+    padding-bottom: 100px; /* Tamaño pensado del footer*/
+}
+/*Footer*/
+footer{
+    position: relative; /*Footer se posiciona en relacion a su posición inicial*/
+	width: 100%;
+    height: 100px; /*Tamaño actual del footer*/
+    margin-top: -100px; /*ajustando footer a la altura con el padding-bottom de MAIN*/
+    clear: both;
+	background-color: #373a6d;
+}
+
+/* Texto de Footer */
+footer p{
+    padding-top: 15px;
+    color: #d9d0d0;
+    text-align: center;
+}
+
+/* Despliegue NAV */
+.desplazarNav{
+    display: none;
+}
+
+/* Controles de tamaño */
+@media screen and (max-width: 900px){
+    /* Configurar top, colocando cada boton uno debajo del otro */
+    header{
+        width: 87%;
+        height: 65px;
+        margin-top: 5px;
+        max-width: 100%;
+        margin-left: 7%;
+    }
+    .sitio-logo{
+        padding-top: 10px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .sitio-logo a{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        margin: 0;
+    }
+
+    nav#menu-desplegable {
+        display: none;
+    }
+    nav{
+        width: 100%;
+        height: auto;
+    }
+
+    nav ul{
+        font-size: xx-large;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav ul li{
+        height: 70px;
+        border: 2px solid #c9c9c9;
+        border-radius: 30px;
+    }
+
+    nav ul li a{
+        height: 100%;
+        padding: 10px 0 0 0;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    /* Despliegue NAV */
+    .desplazarNav{
+        display: block;
+        position: absolute;
+        right: 0;
+        padding: 18px 36px 0 0;
+    }
+    .desplazarNav img{
+        width: 48px;
+    }
+
+}
+
+@media screen and (max-width: 500px){
+    .desplazarNav{
+        padding: 15px 15px 0 0;
+    }
+}
+
+
+/* Modo Oscuro */
+.modo-oscuro {
+    position: absolute;
+    padding: 12px 0 0 7px;
+
+    color: white;
+    font-size: 14px;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Quicksand', sans-serif;
+}

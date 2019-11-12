@@ -1,0 +1,17 @@
+.cuenta-creada{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 70px;
+}
+
+#redireccionar{
+    color: #000000;
+}
+@media screen and (max-width:600px){
+    .cuenta-creada img{
+        width: 100%;
+        height: auto;
+    }
+}

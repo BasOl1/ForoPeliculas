@@ -1,0 +1,92 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/formulario.css' %}"> <!-- CSS Formulario -->
+{% endblock %}
+
+{% block content %}
+<main id="main-container">
+    <h1>¡Te invitamos a ser parte de nuestra comunidad!</h1>
+    <!-- Formulario -->
+    <form name="datosRegistro" method="POST" action="{% url 'creada' %}" onsubmit="return validarFormulario()"> 
+        <fieldset>
+            <legend>Registro Ruiseñor</legend>
+            <!-- Fila Usuario-->
+            <div class="fila-form">
+                <!-- columna label ancho 25% -->
+                <div class="col-25">
+                    <label for="nombreUsuario">Nombre de Usuario</label>
+                </div>
+                <!-- Columna Input ancho 75% -->
+                <div class="col-75">
+                    <input type="text" name="nombreUsuario" id="nombreUsuario" placeholder="Su usuario..." autofocus required onkeypress=" return soloLetrasNumeros(event)">
+                </div>  
+            </div>
+
+            <!-- Fila Email-->
+            <div class="fila-form">
+                <!-- columna label ancho 25% -->
+                <div class="col-25">
+                    <label for="correoElectronico">Correo Electrónico</label>
+                </div>
+                <!-- Columna Input ancho 75% -->
+                <div class="col-75">
+                    <input type="email" name="correoElectronico" id="correoElectronico" placeholder="Su email..." required>
+                </div>  
+            </div>
+
+            <!-- Fila Password-->
+            <div class="fila-form">
+                <!-- columna label ancho 25% -->
+                <div class="col-25">
+                    <label for="contrasena">Contraseña</label>
+                </div>
+                <!-- Columna Input ancho 75% -->
+                <div class="col-75">
+                    <input type="password" name="contrasena" id="contrasena" placeholder="Su contraseña..." required>
+                </div>  
+            </div>
+
+            <!-- Fila Confirmar Password-->
+            <div class="fila-form">
+                <!-- columna label ancho 25% -->
+                <div class="col-25">
+                    <label for="confirmContrasena">Confirmar Contraseña</label>
+                </div>
+                <!-- Columna Input ancho 75% -->
+                <div class="col-75">
+                    <input type="password" name="confirmContrasena" id="confirmContrasena" placeholder="Confirme su contraseña..." required>
+                </div>  
+            </div>
+            
+            <!-- Fila Fecha Nacimiento-->
+            <div class="fila-form">
+                <!-- columna label ancho 25% -->
+                <div class="col-25">
+                    <label>Fecha Nacimiento</label>
+                </div>
+                <!-- Columna Input ancho 75% -->
+                <div class="col-75">
+                    <div class="fecha-manual">
+                        <label for="fechaDia">Día</label>
+                        <input type="number" name="fechaDia" id="fechaDia" min="1" max="31" onkeypress="return soloNumeros(event)" onkeyup="largoFechaNac()" required>
+                    </div>
+                    <div class="fecha-manual">
+                        <label for="fechaMes">Mes</label>
+                        <input type="number" name="fechaMes" id="fechaMes" min="1" max="12" onkeypress="return soloNumeros(event)" onkeyup="largoFechaNac()" required>
+                    </div>
+                    <div class="fecha-manual">
+                        <label for="fechaAnno">Año</label>
+                        <input type="number" name="fechaAnno" id="fechaAnno" min="1900" max="2019" onkeypress="return soloNumeros(event)" onkeyup="largoFechaNac()" required>
+                    </div>
+                </div>  
+            </div>
+
+            <!-- Fila boton crear cuenta -->
+            <div class="row">
+                <input type="submit" value="Crear Cuenta">
+            </div>
+        </fieldset>
+    </form>
+</main>
+{% endblock %}

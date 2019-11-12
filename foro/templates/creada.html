@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/creado.css' %}"> <!-- CSS cuenta creada -->
+{% endblock %}
+
+{% block content %}
+<main id="main-container">
+    <div class="cuenta-creada">
+        <h1>¡Cuenta Creada con Éxito!</h1>
+        <a href="{% url 'galeria' %}">
+            <img src="{% static 'images/ViajeaLaLuna.png' %}" alt="Viaje a la luna">
+            <h2 id="redireccionar">Ahora ven a disfrutar, charlar, y obtener una gran variedad de peliculas!</h2>
+        </a>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block title %}<title>Ruiseñor - Foro de Peliculas</title>{% endblock %}
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet"> <!--Enlazar libreria de fuentes para insertar 'Quicksand'-->
+    <!-- Links Bootstrap Carrusel-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    {% load static %}
+    <script src="{% static 'js/main.js' %}"></script> <!-- JS Principal -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> <!-- CSS principal -->
+    {% block styles %}{% endblock %} 
+</head>
+<body>
+    <!-- Container TOP -->
+    <div id="container-top">
+        <!-- Modo Oscuro -->
+        <div class="modo-oscuro">
+            <input type="checkbox" name="btnEstilo" value="modoOscuro" id="modoOscuro" onclick="modoOscuro()">
+            <br>
+            Modo Oscuro
+        </div>
+        <!-- Fila que tendrá solo header y nav -->
+        <div class="fila-top">
+            <!-- Header -->
+            <header>
+                <div class="sitio-logo">
+                    <h1>
+                        <a href="{% url 'index' %}">Ruiseñor</a>
+                    </h1>
+                </div>
+            </header>
+            <!-- Nav -->
+            <nav id="menu-desplegable"> 
+                <ul>
+                    <li><a href="{% url 'index' %}" title="Inicio">Inicio</a></li>
+                    <li><a href="{% url 'galeria' %}" title="Peliculas">Peliculas</a></li>
+                    <li><a href="{% url 'registro' %}" title="Registrarse">Registrarse</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Botón despliegue Nav -->
+        <div class="desplazarNav">
+            <button type="submit" onclick="desplegarMenu()"><img src="{% static 'images/btnDespliegue.png' %}" alt="Despliegue"></button>
+        </div>
+    </div>
+    {% block content %}{% endblock %}
+    <footer>
+        <p>© 2019 Ruiseñor. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,4 @@
+Bastian Olguin
+user: basolguin
+pass: basolguin1234
+entorno-virtual: proyecto_peliculas
