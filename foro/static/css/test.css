@@ -1,0 +1,20 @@
+.tabla{
+    margin: auto;
+    width: 60%;
+}
+.fila{
+    width: 100%;
+    display: flex;
+}
+.col-25{
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    float: left;
+}
+.col-75{
+    display: flex;
+    flex-direction: row;
+    width: 75%;
+    float: right;
+}

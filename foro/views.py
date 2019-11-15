@@ -38,5 +38,11 @@ def CrearUsuario(request):
         context= {'error': 'La cuenta no ha sido creada exitosamente. Por favor ingresa nuevamente los datos'}
         return render(request,'registro.html', context)
 
-class UserListView(generic.ListView):
+#def usuariolist(request):
+#	usuario = Usuario.objects.all()
+#	contexto = {'usuarios':usuario}
+#	return render(request, 'usuario_list.html',contexto)
+
+class UsuarioListView(generic.ListView):
     model = Usuario
+    template_name = "usuario_list.html"

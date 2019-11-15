@@ -1,17 +1,26 @@
 {% extends "base_generic.html" %}
 {% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/test.css' %}"> <!-- CSS Carrusel --> 
+{% endblock %}
 
 {% block content %}
 <main id="main-container">
-    <h1>Lista de Usuarios</h1>
-    {% if user_list %}
-    <ul>
-        {% for usuario in user_list %}
-        <li>
-            <a href="{{ usuario.get_absolute_url }}">{{ usuario.nombre }}</a>{{usuario.email}}
-        </li>
+    {% if usuario_list %}
+    <div class="tabla">
+        <h1>Lista de Usuarios</h1>
+        <div class="fila">
+            <div class="col-25"><strong>Nombre Usuario</strong></div>
+            <div class="col-75"><strong>Email</strong></div>
+        </div>
+        
+        {% for usuario in usuario_list %}
+            <div class="fila">
+                <div class="col-25"><a href="{{ usuario.get_absolute_url }}">{{ usuario.nombre }}</a></div>
+                <div class="col-75">{{usuario.email}}</div>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
     {% else %}
         <p>No hay usuarios registrados</p>
     {% endif %}
