@@ -8,7 +8,8 @@
 <main id="main-container">
     <h1>¡Te invitamos a ser parte de nuestra comunidad!</h1>
     <!-- Formulario -->
-    <form name="datosRegistro" method="POST" action="{% url 'creada' %}" onsubmit="return validarFormulario()"> 
+    <form name="datosRegistro" method="POST" action="{% url 'creada' %}" onsubmit="return validarFormulario()">
+        {% csrf_token %}
         <fieldset>
             <legend>Registro Ruiseñor</legend>
             <!-- Fila Usuario-->

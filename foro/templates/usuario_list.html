@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %}
+<main id="main-container">
+    <h1>Lista de Usuarios</h1>
+    {% if user_list %}
+    <ul>
+        {% for usuario in user_list %}
+        <li>
+            <a href="{{ usuario.get_absolute_url }}">{{ usuario.nombre }}</a>{{usuario.email}}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>No hay usuarios registrados</p>
+    {% endif %}
+</main>
+{% endblock %}

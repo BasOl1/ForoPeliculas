@@ -1,5 +1,8 @@
 from django.shortcuts import render
-from .models import Usuario
+from .models import Usuario, Topic, Genero, Comentario
+from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -17,8 +20,23 @@ def index(request):
 def galeria(request):
     return render(request,'galeria.html')
 
-def registro(request):
-    return render(request,'registro.html')
+def CrearUsuario(request):
+    if request.method == 'POST':
+        if request.POST.get('nombreUsuario') and request.POST.get('correoElectronico') and request.POST.get('contrasena') and request.POST.get('confirmContrasena') and request.POST.get('confirmContrasena') and request.POST.get('fechaDia') and request.POST.get('fechaMes') and request.POST.get('fechaAnno'):
 
-def creada(request):
-    return render(request,'creada.html')
+            fecha = request.POST.get('fechaAnno')+"-"+request.POST.get('fechaMes')+"-"+request.POST.get('fechaDia')
+            usuario=Usuario()
+            usuario.nombre = request.POST.get('nombreUsuario')
+            usuario.email = request.POST.get('correoElectronico')
+            usuario.contrasena = request.POST.get('contrasena')
+            usuario.confirmar_pw = request.POST.get('confirmContrasena')
+            usuario.fecha_nacimiento = fecha
+            usuario.save()
+            
+            return render(request, 'creada.html')  
+    else:
+        context= {'error': 'La cuenta no ha sido creada exitosamente. Por favor ingresa nuevamente los datos'}
+        return render(request,'registro.html', context)
+
+class UserListView(generic.ListView):
+    model = Usuario
