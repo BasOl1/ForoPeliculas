@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.urls import reverse
 
 # Create your models here.
 class Usuario(models.Model):
@@ -18,8 +19,6 @@ class Genero(models.Model):
 
     def __str__(self):
         return self.nombre
-
-
 
 class Topic(models.Model):
     usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
@@ -41,6 +40,9 @@ class Topic(models.Model):
 
     def __str__(self):
         return self.titulo
+
+    def get_absolute_url(self):
+        return reverse('detalle-temas', args=[str(self.id)])
 
 class Comentario(models.Model):
     usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)

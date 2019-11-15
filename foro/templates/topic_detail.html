@@ -1,0 +1,42 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/topic_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/galeria.css' %}">
+
+{% endblock %}
+
+{% block content %}
+<main id="main-container">
+    <section id="galeria">
+        <article class="peli">
+            <div class="op">
+                <p class="op1"><strong>Publicado por: {{topic.usuario}}</strong></p>
+                <p class="op2"><strong>fecha: {{topic.fecha_publicacion}}</strong></p>
+            </div>
+            <h1>{{ topic.titulo }}</h1>
+            <div class="presentacion">
+                <div class="col-25">
+                    <a href="{{topic.portada.url}}">
+                        <img class="imagen" src="{{topic.portada.url}}" alt="{{topic.titulo}}"> 
+                    </a>
+                </div>
+                <div class="col-75">
+                    <p class="sinopsis">{{ topic.sinopsis }}</p>
+                    <p><strong>Detalles</strong></p>
+                    <p>Director: {{ topic.director }}</p>
+                    <p>Año: {{ topic.anho_estreno }}</p>
+                    <p>Género: {% for genero in topic.genero.all %} 
+                        {{ genero }}
+                        {% if not forloop.last %}, {% endif %}{% endfor %}</p>
+                    {% if not topic.descargar %}
+                        <p>Descargar: Aún no se registra</p>
+                    {% else %}
+                        <p>Descargar: <a href="{{ topic.descargar }}">{{ topic.descargar }}</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </article>
+    </section>
+</main>
+{% endblock %}

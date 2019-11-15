@@ -7,6 +7,8 @@ urlpatterns = [
     path('creada/',views.CrearUsuario,name='creada'),
     path('usuarios/', views.UsuarioListView.as_view(), name='usuarios'),
     path('topics/', views.TopicListView.as_view(), name='temas'),
+
+    path('topic/<int:pk>', views.TopicDetailView.as_view(), name='detalle-temas'),
 ]
 
 from django.conf.urls import url

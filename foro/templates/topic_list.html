@@ -14,7 +14,7 @@
             <!-- LISTADO DE PELICULAS -->
             <article class="pelicula">
                 <h5>{{topic.titulo}}({{topic.anho_estreno}})</h5>
-                <a href="{{topic.portada.url}}">
+                <a href="{{topic.get_absolute_url}}">
                     <img src="{{topic.portada.url}}" alt="{{topic.titulo}}"> 
                 </a>
             </article>

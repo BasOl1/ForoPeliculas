@@ -47,3 +47,7 @@ class UsuarioListView(generic.ListView):
 class TopicListView(generic.ListView):
     model = Topic
     template_name = "topic_list.html"
+
+class TopicDetailView(generic.DetailView):
+    model = Topic
+    template_name = "topic_detail.html"

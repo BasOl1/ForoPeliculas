@@ -1,0 +1,52 @@
+#main-container{
+    font-family: Arial;
+    font-size: 16px;
+}
+.peli{
+    max-width: 100%;
+}
+.tabla{
+    display:block;
+    background-color:#9f69122d;
+    border: 3px;
+    border-style: ridge;
+    border-color: #9f6a12;
+    margin: auto;
+    width:50%;
+}
+h1{
+    padding: 0 20px 0px 20px;
+    text-align: center;
+}
+.presentacion{
+    padding: 0 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+}
+.col-25{
+    margin: auto;
+}
+.col-75{
+    margin: auto;
+    width: 75%;
+}
+.sinopsis{
+    text-align: justify;
+}
+.op{
+    width: 100%;
+    font-size: 14px;
+}
+.op1{
+    float: left;
+}
+.op2{
+    float: right;
+}
+@media screen and (max-width: 800px){
+    .col-25,.col-75{
+        width: 100%;
+    }
+}
