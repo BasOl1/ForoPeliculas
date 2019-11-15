@@ -17,9 +17,6 @@ def index(request):
         context={'num_usuarios':num_usuarios},
     )
 
-def galeria(request):
-    return render(request,'galeria.html')
-
 def CrearUsuario(request):
     if request.method == 'POST':
         if request.POST.get('nombreUsuario') and request.POST.get('correoElectronico') and request.POST.get('contrasena') and request.POST.get('confirmContrasena') and request.POST.get('confirmContrasena') and request.POST.get('fechaDia') and request.POST.get('fechaMes') and request.POST.get('fechaAnno'):
@@ -46,3 +43,7 @@ def CrearUsuario(request):
 class UsuarioListView(generic.ListView):
     model = Usuario
     template_name = "usuario_list.html"
+
+class TopicListView(generic.ListView):
+    model = Topic
+    template_name = "topic_list.html"

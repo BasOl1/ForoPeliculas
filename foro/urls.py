@@ -3,11 +3,10 @@ from . import views
 
 urlpatterns = [
     path('',views.index,name='index'),
-    path('galeria/',views.galeria,name='galeria'),
     path('registro/',views.CrearUsuario,name='registro'),
     path('creada/',views.CrearUsuario,name='creada'),
-    #path('usuarios/', views.usuariolist, name='listausuarios')
-    path('usuarios/', views.UsuarioListView.as_view(), name='usuarios')
+    path('usuarios/', views.UsuarioListView.as_view(), name='usuarios'),
+    path('topics/', views.TopicListView.as_view(), name='temas'),
 ]
 
 from django.conf.urls import url

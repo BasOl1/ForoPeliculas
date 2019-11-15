@@ -22,6 +22,6 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('foro/',include('foro.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #Para visualizar Archivos (Media) subidos por el usuario
 
 urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

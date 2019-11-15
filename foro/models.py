@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class Usuario(models.Model):
@@ -18,10 +19,12 @@ class Genero(models.Model):
     def __str__(self):
         return self.nombre
 
+
+
 class Topic(models.Model):
     usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
-    
     titulo = models.CharField(max_length=200)
+    anho_estreno = models.IntegerField(validators=[MinValueValidator(1900), MaxValueValidator(2020)], default=0)
     sinopsis = models.TextField(blank=True, null=True)
     director = models.CharField(max_length=200)
     genero = models.ManyToManyField(Genero)

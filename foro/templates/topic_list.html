@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/galeria.css' %}"> <!-- CSS Galeria -->
+{% endblock %}
+
+{% block content %}
+<main id="main-container">
+    <!-- GALERIA -->
+    <section id="galeria">
+        <h2>Grupos de Discusión</h2>
+        {% if topic_list %}
+            {% for topic in topic_list %}
+            <!-- LISTADO DE PELICULAS -->
+            <article class="pelicula">
+                <h5>{{topic.titulo}}({{topic.anho_estreno}})</h5>
+                <a href="{{topic.portada.url}}">
+                    <img src="{{topic.portada.url}}" alt="{{topic.titulo}}"> 
+                </a>
+            </article>
+            {% endfor %}
+        {% else %}
+            <p>No hay Topics registrados</p>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}
