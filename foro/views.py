@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Usuario, Topic, Genero, Comentario
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 from django.contrib import messages
 
 # Create your views here.
@@ -28,17 +29,23 @@ def CrearUsuario(request):
             usuario.contrasena = request.POST.get('contrasena')
             usuario.confirmar_pw = request.POST.get('confirmContrasena')
             usuario.fecha_nacimiento = fecha
-            usuario.save()
-            
-            return render(request, 'creada.html')  
+            if usuario.contrasena == usuario.confirmar_pw:
+                try:
+                    user = Usuario.objects.get(nombre__iexact=usuario.nombre)
+                    context= {'error': 'El nombre de usuario ya existe. Por favor ingresa otro nombre.'}
+                    messages.error(request, 'El nombre de usuario ya existe. Por favor ingresa otro.')
+                    return redirect('registro')
+                except Usuario.DoesNotExist:
+                    try:
+                        user1 = Usuario.objects.get(email__iexact=usuario.email)
+                        messages.error(request, 'El email ingresado ya existe. Por favor ingresa otro.')
+                        return redirect('registro')
+                    except Usuario.DoesNotExist:
+                        usuario.save()
+                        return render(request, 'creada.html')
     else:
         context= {'error': 'La cuenta no ha sido creada exitosamente. Por favor ingresa nuevamente los datos'}
         return render(request,'registro.html', context)
-
-#def usuariolist(request):
-#	usuario = Usuario.objects.all()
-#	contexto = {'usuarios':usuario}
-#	return render(request, 'usuario_list.html',contexto)
 
 class UsuarioListView(generic.ListView):
     model = Usuario
@@ -51,3 +58,10 @@ class TopicListView(generic.ListView):
 class TopicDetailView(generic.DetailView):
     model = Topic
     template_name = "topic_detail.html"
+
+class TopicCreate(CreateView):
+    model = Topic
+    template_name = "topic_form.html"
+    fields = ['usuario','titulo','anho_estreno','sinopsis','director','genero','descargar','portada']
+
+

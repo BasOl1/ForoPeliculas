@@ -31,7 +31,22 @@
     width: 100%;
     height: auto;
 }
-
+.CrearPost{
+    padding-left: 46%;
+}
+.btnPost{
+    background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.btnPost:hover{
+    background-color: #008bbaa2;
+}
 @media screen and (max-width: 1800px){
     #galeria{
         width: 66%;
@@ -50,5 +65,10 @@
 @media screen and (max-width: 1000px){
     #galeria{
         border: 10px ridge #9f6a12;
+    }
+}
+@media screen and (max-width: 800px){
+    .CrearPost{
+        padding-left: 41%;
     }
 }

@@ -1,5 +1,8 @@
 from django.urls import path
 from . import views
+from django.conf.urls import url
+from django.conf import settings
+from django.views.static import serve
 
 urlpatterns = [
     path('',views.index,name='index'),
@@ -11,9 +14,9 @@ urlpatterns = [
     path('topic/<int:pk>', views.TopicDetailView.as_view(), name='detalle-temas'),
 ]
 
-from django.conf.urls import url
-from django.conf import settings
-from django.views.static import serve
+urlpatterns += [
+    path('post/crear/', views.TopicCreate.as_view(), name='crear-post'),
+]
 
 if settings.DEBUG:
     urlpatterns += [

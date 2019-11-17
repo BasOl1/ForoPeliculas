@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/post-form.css' %}">
+{% endblock %}
+{% block content %}
+<main id="main-container">
+    <form class="crear-form" action="" method="post" enctype="multipart/form-data">
+        <h1>Crear Post</h1>
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <input type="submit" value="Crear Post" />   
+    </form>
+</main>
+{% endblock %}

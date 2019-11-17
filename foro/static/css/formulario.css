@@ -120,4 +120,10 @@ input[type=submit]:hover{
     .fecha-manual{
         width: 22%;
     }
+}
+.messages{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: red;
 }   

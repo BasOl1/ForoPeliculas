@@ -6,6 +6,9 @@
 
 {% block content %}
 <main id="main-container">
+    <form class="CrearPost" action="{% url 'crear-post' %}">
+        <input class="btnPost" type="submit" value="Crear Post" />
+    </form>
     <!-- GALERIA -->
     <section id="galeria">
         <h2>Grupos de Discusión</h2>
@@ -15,7 +18,11 @@
             <article class="pelicula">
                 <h5>{{topic.titulo}}({{topic.anho_estreno}})</h5>
                 <a href="{{topic.get_absolute_url}}">
+                    {% if topic.portada %}
                     <img src="{{topic.portada.url}}" alt="{{topic.titulo}}"> 
+                    {% else %}
+                    <h6>{{topic.titulo}}</h6>
+                    {% endif %}
                 </a>
             </article>
             {% endfor %}

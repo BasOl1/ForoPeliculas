@@ -1,0 +1,8 @@
+.crear-form{
+    padding-left: 100px;
+}
+@media screen and (max-width: 520px){
+    .crear-form{
+        padding-left: 0;
+    }
+}
