@@ -8,8 +8,11 @@
 
 {% block content %}
 <main id="main-container">
-    <form class="Post" action="{% url 'editar-post' topic.id %}">
+    <form class="Post-detail" action="{% url 'editar-post' topic.id %}">
         <input class="EditarPost" type="submit" value="Editar Post"/>
+    </form>
+    <form class="Post-detail" action="{% url 'eliminar-post' topic.id %}">
+        <input class="EliminarPost" type="submit" value="Eliminar Post"/>
     </form>
     <section id="galeria">
         <article class="peli">

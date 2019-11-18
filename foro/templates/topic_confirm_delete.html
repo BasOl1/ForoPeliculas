@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/eliminar-topic.css' %}">
+{% endblock%}
+
+{% block content %}
+<main id="main-container">
+    <form method="POST">
+        {% csrf_token %}
+        <p><strong>¿Estás segur@ que quieres eliminar el post "{{topic.titulo}}" N°{{topic.id}}?</strong></p>
+        <input type="submit" value="Si, estoy seguro"><br>
+        <img src="{% static 'images/sad.png' %}" alt="Cara triste">
+    </form>
+
+</main>
+{% endblock %}

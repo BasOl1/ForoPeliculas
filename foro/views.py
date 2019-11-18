@@ -68,4 +68,9 @@ class TopicUpdate(UpdateView):
     template_name = "topic_form.html"
     fields = ['titulo','anho_estreno','sinopsis','director','genero','descargar','portada']
 
+class TopicDelete(DeleteView):
+    model = Topic
+    template_name = "topic_confirm_delete.html"    
+    success_url = reverse_lazy('temas')
+
 

@@ -17,6 +17,7 @@ urlpatterns = [
 urlpatterns += [
     path('topic/crear/', views.TopicCreate.as_view(), name='crear-post'),
     path('topic/<int:pk>/editar', views.TopicUpdate.as_view(), name='editar-post'),
+    path('topic/<int:pk>/eliminar', views.TopicDelete.as_view(), name='eliminar-post'),
 ]
 
 if settings.DEBUG:

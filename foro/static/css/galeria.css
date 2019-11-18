@@ -47,19 +47,7 @@
 .btnPost:hover{
     background-color: #008bbaa2;
 }
-.EditarPost{
-    background-color: #bab700;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-.EditarPost:hover{
-    background-color: #bab70086;
-}
+
 @media screen and (max-width: 1800px){
     #galeria{
         width: 66%;

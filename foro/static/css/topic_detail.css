@@ -49,8 +49,46 @@ h1{
     min-width: 230px;
     max-width: 230px;
 }
+.Post-detail{
+    padding-left: 33%;
+    padding-right: 33%;
+}
+.EditarPost{
+    background-color: #bab700;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  float: left;
+}
+.EditarPost:hover{
+    background-color: #bab70086;
+}
+.EliminarPost{
+    background-color: #ba0000;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  float: right;
+}
+.EliminarPost:hover{
+    background-color: #ba000077;
+}
+@media screen and (max-width: 900px){
+    .Post-detail{
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+}
 @media screen and (max-width: 800px){
-    .col-25,.col-75{
+    .col-75{
         width: 100%;
     }
 }
