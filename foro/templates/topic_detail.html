@@ -8,6 +8,9 @@
 
 {% block content %}
 <main id="main-container">
+    <form class="Post" action="{% url 'editar-post' topic.id %}">
+        <input class="EditarPost" type="submit" value="Editar Post"/>
+    </form>
     <section id="galeria">
         <article class="peli">
             <div class="op">

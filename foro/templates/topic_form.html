@@ -6,12 +6,20 @@
 {% block content %}
 <main id="main-container">
     <form class="crear-form" action="" method="post" enctype="multipart/form-data">
-        <h1>Crear Post</h1>
         {% csrf_token %}
-        <table>
-        {{ form.as_table }}
-        </table>
-        <input type="submit" value="Crear Post" />   
+        {% if request.get_full_path == "/foro/topic/crear/" %}
+            <h1>Crear Post</h1>
+            <table>
+            {{ form.as_table }}
+            </table>
+            <input type="submit" value="Crear Post" />
+        {% else %}
+            <h1>Editar Post N° {{topic.id}} </h1>
+            <table>
+            {{ form.as_table }}
+            </table>
+            <input type="submit" value="Editar Post" />
+        {% endif %}  
     </form>
 </main>
 {% endblock %}

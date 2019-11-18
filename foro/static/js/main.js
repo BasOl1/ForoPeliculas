@@ -12,7 +12,10 @@ function validarFormulario(){
         document.datosRegistro.confirmContrasena.focus();
         return false;
     } 
-        
+    if(parseInt(txtMes.value) == 2 && parseInt(txtDia.value)>29 ){
+        alert('Error: fecha no válida. Vuelve a intentarlo');
+        return false;
+    }    
     
 
 }

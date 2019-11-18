@@ -19,7 +19,7 @@ def index(request):
     )
 
 def CrearUsuario(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         if request.POST.get('nombreUsuario') and request.POST.get('correoElectronico') and request.POST.get('contrasena') and request.POST.get('confirmContrasena') and request.POST.get('confirmContrasena') and request.POST.get('fechaDia') and request.POST.get('fechaMes') and request.POST.get('fechaAnno'):
 
             fecha = request.POST.get('fechaAnno')+"-"+request.POST.get('fechaMes')+"-"+request.POST.get('fechaDia')
@@ -44,8 +44,7 @@ def CrearUsuario(request):
                         usuario.save()
                         return render(request, 'creada.html')
     else:
-        context= {'error': 'La cuenta no ha sido creada exitosamente. Por favor ingresa nuevamente los datos'}
-        return render(request,'registro.html', context)
+        return render(request,'registro.html')
 
 class UsuarioListView(generic.ListView):
     model = Usuario
@@ -63,5 +62,10 @@ class TopicCreate(CreateView):
     model = Topic
     template_name = "topic_form.html"
     fields = ['usuario','titulo','anho_estreno','sinopsis','director','genero','descargar','portada']
+
+class TopicUpdate(UpdateView):
+    model = Topic
+    template_name = "topic_form.html"
+    fields = ['titulo','anho_estreno','sinopsis','director','genero','descargar','portada']
 
 

@@ -45,6 +45,10 @@ h1{
 .op2{
     float: right;
 }
+.imagen{
+    min-width: 230px;
+    max-width: 230px;
+}
 @media screen and (max-width: 800px){
     .col-25,.col-75{
         width: 100%;
