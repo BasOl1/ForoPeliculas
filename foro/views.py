@@ -32,7 +32,6 @@ def CrearUsuario(request):
             if usuario.contrasena == usuario.confirmar_pw:
                 try:
                     user = Usuario.objects.get(nombre__iexact=usuario.nombre)
-                    context= {'error': 'El nombre de usuario ya existe. Por favor ingresa otro nombre.'}
                     messages.error(request, 'El nombre de usuario ya existe. Por favor ingresa otro.')
                     return redirect('registro')
                 except Usuario.DoesNotExist:
