@@ -95,6 +95,15 @@ footer p{
 .desplazarNav{
     display: none;
 }
+.bienvenida{
+    display: block;
+    width: 150px;
+    background-color:#5a2f86;
+    color:white;
+    float: right;
+    font-size: 20px;
+    border: 1px dashed;
+}
 
 /* Controles de tamaño */
 @media screen and (max-width: 900px){

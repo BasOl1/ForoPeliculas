@@ -41,6 +41,12 @@
                     <li><a href="{% url 'index' %}" title="Inicio">Inicio</a></li>
                     <li><a href="{% url 'temas' %}" title="Peliculas">Peliculas</a></li>
                     <li><a href="{% url 'registro' %}" title="Registrarse">Registrarse</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}" title="logout">Cerrar Sesión</a></li>
+                        <p class="bienvenida">Hola, {{user.username}}!</p>
+                    {% else %}
+                        <li><a href="{% url 'login' %}" title="Login">Iniciar Sesión</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>

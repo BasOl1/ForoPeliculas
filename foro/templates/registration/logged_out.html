@@ -1,0 +1,9 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<main id="main-container">
+<p>Has cerrado la sesión!</p>
+
+<a href="{% url 'login' %}">Haz click aquí para iniciar sesión nuevamente.</a>
+</main>
+{% endblock %}

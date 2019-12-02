@@ -22,6 +22,11 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('foro/',include('foro.urls')),
+    path('foro/', include('django.contrib.auth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #Para visualizar Archivos (Media) subidos por el usuario
+
+urlpatterns += [
+    path('foro/', include('django.contrib.auth.urls')),
+]
 
 urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
