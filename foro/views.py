@@ -4,7 +4,7 @@ from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib import messages
-
+from django.contrib.auth.models import User
 # Create your views here.
 def index(request):
     "Funcion vista para la pagina inicio del sitio"
@@ -23,12 +23,16 @@ def CrearUsuario(request):
         if request.POST.get('nombreUsuario') and request.POST.get('correoElectronico') and request.POST.get('contrasena') and request.POST.get('confirmContrasena') and request.POST.get('confirmContrasena') and request.POST.get('fechaDia') and request.POST.get('fechaMes') and request.POST.get('fechaAnno'):
 
             fecha = request.POST.get('fechaAnno')+"-"+request.POST.get('fechaMes')+"-"+request.POST.get('fechaDia')
+            real_user = User()
             usuario=Usuario()
             usuario.nombre = request.POST.get('nombreUsuario')
             usuario.email = request.POST.get('correoElectronico')
             usuario.contrasena = request.POST.get('contrasena')
             usuario.confirmar_pw = request.POST.get('confirmContrasena')
             usuario.fecha_nacimiento = fecha
+            real_user.username = usuario.nombre
+            real_user.password = request.POST.get('contrasena')
+            real_user.email = usuario.email
             if usuario.contrasena == usuario.confirmar_pw:
                 try:
                     user = Usuario.objects.get(nombre__iexact=usuario.nombre)
@@ -41,6 +45,7 @@ def CrearUsuario(request):
                         return redirect('registro')
                     except Usuario.DoesNotExist:
                         usuario.save()
+                        real_user.save()
                         return render(request, 'creada.html')
     else:
         return render(request,'registro.html')
