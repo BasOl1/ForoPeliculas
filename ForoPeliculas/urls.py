@@ -18,8 +18,9 @@ from django.urls import path
 from django.urls import include
 from django.conf.urls.static import static
 from django.conf import settings
-
+from django.views.generic.base import RedirectView
 urlpatterns = [
+    path('',RedirectView.as_view(url='/foro/')),
     path('admin/', admin.site.urls),
     path('foro/',include('foro.urls')),
     path('foro/', include('django.contrib.auth.urls')),
